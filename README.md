@@ -1,67 +1,156 @@
-# Long-Distance Human Locomotion Dataset
+Long-Horizon Human Locomotion and Egocentric Navigation Dataset
 
-**Subtitle:** Long-Horizon Egocentric Navigation Under Resource Constraints
+(South America, longitudinal, real-world)
 
----
+Abstract
 
-## Overview
+This repository documents a long-duration, real-world dataset of human locomotion and egocentric navigation collected during a continuous on-foot journey across South America.
+The dataset emphasizes temporal consistency, spatial grounding, and verification robustness under unconstrained environmental conditions, including rural roads, deserts, semi-urban areas, and variable weather.
 
-This repository documents a long-term egocentric dataset capturing **long-distance human locomotion** across varied terrain, weather, and environments.
+The collection protocol is designed to balance scientific rigor with the practical constraints of a multi-month solo expedition.
 
-The dataset supports research into **long-horizon egocentric navigation under real-world resource constraints**, including limited battery, water, fatigue, terrain variability, and environmental conditions.
+Dataset Scope
 
-The focus is on **measurable human movement over extended time horizons**, not storytelling or travel documentation.
+The dataset captures:
 
----
+Natural human walking behavior over long temporal horizons
 
-## Research Task
+Egocentric navigation without predefined routes
 
-> Given an egocentric view of the environment and current resource state, predict how a human will physically move next over the following hours.
+Environmental variation (terrain, surface, lighting, weather)
 
-Predicted outcomes include distance, duration, stop vs continue, terrain transitions, and resource consumption.
+Physiological context (fatigue, water usage, decision notes)
 
----
+Data is collected in situ, without reenactment, scripting, or artificial stabilization.
 
-## Dataset Structure
+Data Components
 
-- ~365 days approximately of data collection  
-- 3 fixed segments per day (morning, midday, late afternoon)  
-- ~1,095 segments  
-- ~730 long-horizon prediction windows  
+Each day of collection consists of:
 
----
+Segmented egocentric video clips (multiple per day)
 
-## Capture Protocol (Summary)
+Segment-level GPS start and end screenshots
 
-For each segment:
-- GPS screenshot at start and end  
-- Battery percentage and water level captured at start and end  
-- 30–90s forward-facing egocentric video  
-- No talking, narration, music, or edits  
+Daily GPS start and end screenshots
 
-Ground truth is derived from the difference between consecutive segments.
+Manual daily metadata logs
 
----
+Redundant cloud and local storage copies
 
-## Human Annotations
+No post-processing is applied to raw footage beyond standard file handling.
 
-Optional contextual logs are recorded after each segment (e.g. terrain, weather, fatigue, notes).  
-These provide human context and are **not** the prediction target.
+GPS and Temporal Anchoring Protocol
+Daily GPS anchors
 
----
+At the start and end of each collection day, a GPS screenshot is captured.
+These daily anchors establish a temporal envelope within which all dataset activity for that day occurs.
 
-## Scope
+The anchors serve as:
 
-**Included:** movement, location, time, terrain, resource state  
-**Excluded:** intentions, plans, emotions, narration  
+Independent time references
 
----
+Location-verified markers
 
-## Intended Use
+Boundary conditions for all segments recorded that day
 
-Research into long-horizon navigation, human movement forecasting, and resource-constrained locomotion.
+Segment-level GPS anchoring
 
-Not intended for entertainment content or short-horizon action recognition.
+For each dataset segment:
 
-Contact:
-fieldwalk.data@gmail.com
+A GPS screenshot is taken immediately before recording begins
+
+A GPS screenshot is taken immediately after recording ends
+
+Each video segment is therefore bounded by two explicit spatiotemporal reference points.
+Segment anchors are nested within the corresponding daily anchors, creating a hierarchical verification structure:
+
+Daily GPS anchors → Segment GPS anchors → Video file metadata
+
+This structure enables cross-validation between independent sources.
+
+Time Handling Policy
+
+UTC is treated as the authoritative temporal reference for the dataset. Local time and UTC offset are recorded as contextual metadata only.
+
+Device time and timezone are set automatically by geographic location
+
+The applicable UTC offset is recorded once per day in the manual metadata log
+
+This approach eliminates ambiguity arising from daylight-saving changes or government-mandated time adjustments
+
+Manual Metadata Logging
+
+At the end of each day, a manual metadata log is generated and stored in cloud storage.
+
+Typical fields include:
+
+Date
+
+Country and region
+
+Timezone (UTC offset)
+
+Terrain classification
+
+Surface type
+
+Weather conditions
+
+Water carried (start / end)
+
+Subjective fatigue rating
+
+Notes on decisions or anomalies
+
+These logs provide contextual ground truth while remaining independent of the video data.
+
+Data Integrity and Verification
+Upload and verification workflow
+
+Dataset videos are recorded offline
+
+Files are uploaded to cloud storage when connectivity is available
+
+A second person independently verifies each file by:
+
+Opening the file
+
+Confirming playability and completeness
+
+Verified files are:
+
+Downloaded to a separate local machine
+
+Retained in cloud storage for redundancy
+
+Local capture copies are removed only after verification is complete
+
+This workflow minimizes risks of silent corruption and establishes clear custody from capture to storage.
+
+Intended Research Use
+
+The dataset is intended for applications such as:
+
+Long-horizon egocentric navigation
+
+Human locomotion modeling
+
+Robustness evaluation under real-world conditions
+
+Temporal and environmental generalization studies
+
+Dataset-level benchmarking across heterogeneous environments
+
+The dataset prioritizes authenticity and continuity over controlled laboratory conditions.
+
+Notes and Limitations
+
+Environmental conditions vary naturally and are not controlled
+
+Collection is subject to real-world constraints (weather, terrain, physical fatigue)
+
+GPS accuracy reflects consumer-grade devices
+
+The dataset represents a single subject and perspective
+
+These characteristics are inherent to the dataset’s real-world scope and should be considered in downstream use.
