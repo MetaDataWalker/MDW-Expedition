@@ -1,84 +1,67 @@
-# Desert Spine  
-## Long-Distance Human Locomotion Dataset — South America (Planned)
+# Long-Distance Human Locomotion Dataset
 
-This repository documents the methodology and intent behind a self-funded, long-distance walking expedition across South America, designed to produce **verifiable GPS proof**, **structured field notes**, and **repeatable, low-variance visual capture** suitable for later analysis or dataset release.
-
-This is a **methodology and record repository**, not a live feed.
+**Subtitle:** Long-Horizon Egocentric Navigation Under Resource Constraints
 
 ---
 
-## Project scope
-The project consists of a continuous, multi-country walk through arid and semi-arid environments, including desert road corridors and high-altitude regions.
+## Overview
 
-The walk is:
-- Unassisted
-- Self-funded
-- Logged daily with objective GPS evidence
-- Conducted without performance-driven filming
+This repository documents a long-term egocentric dataset capturing **long-distance human locomotion** across varied terrain, weather, and environments.
 
-The emphasis is on **consistency, continuity, and environmental exposure over time**.
+The dataset supports research into **long-horizon egocentric navigation under real-world resource constraints**, including limited battery, water, fatigue, terrain variability, and environmental conditions.
+
+The focus is on **measurable human movement over extended time horizons**, not storytelling or travel documentation.
 
 ---
 
-## Data categories
+## Research Task
 
-### 1) GPS verification (objective)
-Each walking day is logged using:
-- Start-of-day GPS position
-- End-of-day GPS position
-- Distance and basic environmental notes
+> Given an egocentric view of the environment and current resource state, predict how a human will physically move next over the following hours.
 
-This provides independent verification of movement and continuity.
+Predicted outcomes include distance, duration, stop vs continue, terrain transitions, and resource consumption.
 
 ---
 
-### 2) Field notes (contextual metadata)
-Written records maintained separately include:
-- Physical state (fatigue, injury, pacing)
-- Environmental conditions (terrain, weather, altitude)
-- Decision constraints (water, route deviation, rest)
+## Dataset Structure
 
-These notes are intended as **contextual metadata**, not narrative content.
-
----
-
-### 3) Structured visual capture
-Short clips captured with deliberate constraints:
-- Minimal or no narration
-- Repeated framing rules where possible
-- Terrain-driven variation rather than stylistic variation
-- No music, no editing for engagement
-
-The goal is **low stylistic noise** and **high longitudinal consistency**.
+- ~365 days approximately of data collection  
+- 3 fixed segments per day (morning, midday, late afternoon)  
+- ~1,095 segments  
+- ~730 long-horizon prediction windows  
 
 ---
 
-## Environments
-Primary environments include (subject to safety and logistics):
-- Atacama corridor (Chile)
-- Coastal desert zones of Peru (Sechura / Nazca)
-- Other arid or sparsely populated regions encountered en route
+## Capture Protocol (Summary)
 
-These environments were chosen for:
-- Environmental harshness
-- Repetitive movement patterns
-- Long-duration exposure
+For each segment:
+- GPS screenshot at start and end  
+- Battery percentage and water level captured at start and end  
+- 30–90s forward-facing egocentric video  
+- No talking, narration, music, or edits  
+
+Ground truth is derived from the difference between consecutive segments.
 
 ---
 
-## Repository role
-This repository serves as:
-- A public, timestamped declaration of methodology
-- A reference for how data was collected
-- An anchor for post-expedition releases
+## Human Annotations
 
-It does **not** serve as:
-- A real-time tracker
-- A daily log
-- A content feed
+Optional contextual logs are recorded after each segment (e.g. terrain, weather, fatigue, notes).  
+These provide human context and are **not** the prediction target.
 
-Most material will be published **after completion**.
+---
+
+## Scope
+
+**Included:** movement, location, time, terrain, resource state  
+**Excluded:** intentions, plans, emotions, narration  
+
+---
+
+## Intended Use
+
+Research into long-horizon navigation, human movement forecasting, and resource-constrained locomotion.
+
+Not intended for entertainment content or short-horizon action recognition.
 
 Contact:
 fieldwalk.data@gmail.com
-
