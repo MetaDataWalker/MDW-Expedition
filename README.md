@@ -36,9 +36,9 @@ Consistent egocentric viewpoint
 
 This design minimizes confounds and maximizes usability for vision-based systems, egocentric perception models, and navigation research.
 
-GPS Anchoring
+GPS Anchoring start and end of day.
 
-Each segment may include an optional GPS anchor recorded in metadata.
+Each segment will include an further GPS anchor recorded in metadata.
 
 GPS anchoring enables:
 
