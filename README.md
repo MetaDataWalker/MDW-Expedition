@@ -1,155 +1,42 @@
-Long-Horizon Human Locomotion and Egocentric Navigation Dataset
-
-(South America, longitudinal, real-world)
-
+Terrain-Driven Egocentric Walking Dataset — Santa Marta Onward
 Overview
-
-This repository documents a long-duration, real-world dataset of human locomotion and egocentric navigation collected during a continuous on-foot journey across South America.
-The dataset emphasizes temporal consistency, spatial grounding, and verification robustness under unconstrained environmental conditions, including rural roads, deserts, semi-urban areas, and variable weather.
-
-The collection protocol is designed to balance scientific rigor with the practical constraints of a multi-month solo expedition.
-
-Dataset Scope
-
-The dataset captures:
-
-Natural human walking behavior over long temporal horizons
-
-Egocentric navigation without predefined routes
-
-Environmental variation (terrain, surface, lighting, weather)
-
-Physiological context (fatigue, water usage, decision notes)
-
-Data is collected in situ, without reenactment, scripting, or artificial stabilization.
-
-Data Components
-
-Each day of collection consists of:
-
-Segmented egocentric video clips (multiple per day)
-
-
-Daily GPS start and end screenshots
-
-Manual daily metadata logs
-
-Redundant cloud and local storage copies
-
-No post-processing is applied to raw footage beyond standard file handling.
-
-GPS and Temporal Anchoring Protocol
-Daily GPS anchors
-
-At the start and end of each collection day, a GPS screenshot is captured.
-These daily anchors establish a temporal envelope within which all dataset activity for that day occurs.
-
-The anchors serve as:
-
-Independent time references
-
-Location-verified markers
-
-Boundary conditions for all segments recorded that day
-
-Segment-level GPS anchoring
-
-For each dataset segment:
-
-A GPS screenshot is taken immediately before recording begins
-
-Each video segment is anchored by a single explicit spatiotemporal reference point at its start.
-Segment anchors are nested within the corresponding daily anchors, creating a hierarchical verification structure.
-
-Daily GPS anchors → Segment GPS anchors → Video file metadata
-
-This structure enables cross-validation between independent sources.
-
-Time Handling Policy
-
-UTC is treated as the authoritative temporal reference for the dataset. Local time and UTC offset are recorded as contextual metadata only.
-
-Device time and timezone are set automatically by geographic location
-
-The applicable UTC offset is recorded once per day in the manual metadata log
-
-This approach eliminates ambiguity arising from daylight-saving changes or government-mandated time adjustments
-
-Manual Metadata Logging
-
-At the end of each day, a manual metadata log is generated and stored in cloud storage.
-
-Typical fields include:
-
-Date
-
-Country and region
-
-Timezone (UTC offset)
-
-Terrain classification
-
-Surface type
-
-Weather conditions
-
-Infrastructure
-
-Subjective fatigue rating
-
-Notes on decisions or anomalies
-
-These logs provide contextual ground truth while remaining independent of the video data.
-
-Data Integrity and Verification
-Upload and verification workflow
-
-Dataset videos are recorded offline
-
-Files are uploaded to cloud storage when connectivity is available
-
-A second person independently verifies each file by:
-
-Opening the file
-
-Confirming playability and completeness
-
-Verified files are:
-
-Downloaded to a separate local machine
-
-Retained in cloud storage for redundancy
-
-Local capture copies are removed only after verification is complete
-
-This workflow minimizes risks of silent corruption and establishes clear custody from capture to storage.
-
-Intended Research Use
-
-The dataset is intended for applications such as:
-
-Long-horizon egocentric navigation
-
-Human locomotion modeling
-
-Robustness evaluation under real-world conditions
-
-Temporal and environmental generalization studies
-
-Dataset-level benchmarking across heterogeneous environments
-
-The dataset prioritizes authenticity and continuity over controlled laboratory conditions.
-
-Notes and Limitations
-
-Environmental conditions vary naturally and are not controlled
-
-Collection is subject to real-world constraints (weather, terrain, physical fatigue)
-
-GPS accuracy reflects consumer-grade devices
-
-The dataset represents a single subject and perspective
-
-These characteristics are inherent to the dataset’s real-world scope and should be considered in downstream use.
-
-Contact:fieldwalk.data@gmail.com
+This dataset captures long-horizon egocentric locomotion, beginning in Santa Marta, Colombia, using a triggered, environment- and state-driven capture paradigm. Videos are recorded only when meaningful transitions occur, where allowed due to battery, and consistently from a forward-facing, stable POV.
+All footage is silent, providing clean visual input optimized for computer vision, machine learning, and robotics applications.
+The dataset provides continuous real-world sequences of human traversal across heterogeneous terrains, capturing dynamic environmental interactions, biomechanical adaptation, and context-dependent locomotor decision-making. Segments are GPS-anchored to enable geospatial correlation, trajectory analysis, and mapping without revealing sensitive or private locations.
+Capture Paradigm
+Continuous expeditional capture: The subject progresses daily, generating temporally coherent sequences suitable for long-horizon modeling.
+Trigger-based acquisition: Video segments are initiated by:
+Terrain topology and geometric transitions (flat → incline → decline, path curvature, obstacle density)
+Surface composition variability (paved, dirt, sand, rocky, loose aggregates)
+Meteorological perturbations (precipitation, wind, fog, temperature extremes)
+Biophysical state shifts (subjective fatigue, heat stress, gait adaptation)
+Infrastructure encounters (settlements, bridges, signage, anthropogenic obstacles)
+Sparse, opportunistic capture: Recording occurs where permitted by power availability, naturally clustering footage around highly informative environmental and physiological events.
+Metadata
+Externally logged metadata preserves ground-truth context without contaminating the visual data stream.
+Supports optional GPS anchoring for each segment, enabling geospatial analysis, path reconstruction, and trajectory studies.
+Provides descriptors for environmental conditions, terrain typology, infrastructure context, and human state variables.
+Supports algorithmic supervision, multi-modal correlation, and domain adaptation experiments.
+Storage and Integrity
+Videos are stored both locally on a desktop and in cloud storage in their original, unaltered format.
+No compression, encoding, editing, or modification is applied — what is captured is exactly what is stored.
+Verification workflow ensures all video files are complete, playable, and fully intact prior to storage.
+Metadata is maintained separately from video files, preserving authenticity and integrity while enabling geospatial analysis.
+Intended Applications
+This dataset is designed for high-value AI, robotics, and human factors applications, including:
+Egocentric perception & navigation: Long-horizon trajectory modeling, SLAM evaluation, path prediction, and scene understanding.
+Human locomotion & biomechanics modeling: Fatigue adaptation, gait variability, and energy expenditure analysis.
+Robotics & autonomous systems: Real-world terrain traversal, obstacle negotiation, and adaptive planning.
+Environmental and geospatial research: Terrain usage patterns, infrastructure impact studies, and anthropogenic interaction modeling.
+Key Technical Features
+Forward-facing, egocentric perspective: Ensures consistent visual frame-of-reference for downstream CV/ML pipelines.
+Sparse, high-information capture: Prioritizes segments with maximal environmental and physiological variance.
+Continuous, long-horizon sequences: Enables temporal modeling, recurrent learning, and trajectory analysis.
+GPS-anchored segments: Supports geospatial correlation, trajectory reconstruction, and mapping studies.
+Heterogeneous terrain and environmental representation: Supports robustness testing, domain generalization, and multi-condition evaluation.
+Silent capture: Eliminates audio confounds and privacy issues, enhancing usability for vision-based AI systems.
+Unaltered storage: Raw, uncompressed files maintain complete fidelity and trustworthiness.
+Notes
+Environmental conditions are naturally variable and not artificially controlled.
+Dataset reflects a single-subject, first-person perspective, capturing authentic human locomotion.
+Sparse capture reflects informational prioritization, not continuous coverage, emphasizing signal over redundant frames.
