@@ -127,7 +127,7 @@ Simplified licensing due to sole ownership
 ✅ Core Signal: Sparse, high-information, fully auditable egocentric locomotion data, optimized for AI, robotics, and perception research.
 
 📬 Contact & Licensing
-Contact: Michael Dee fieldwalk.data@gmail.com
+Contact: Michael Dee embodiedlab@gmail.com
 
 Licensing: Single-source, fully auditable dataset. Licensed for research, AI training, and robotics applications.
 
