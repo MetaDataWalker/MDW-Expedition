@@ -1,6 +1,6 @@
 Long-Horizon Egocentric Locomotion Dataset
 
-One-person, fully traced expedition — clean, legally safe, and fully auditable provenance ✅
+One-person, fully traced expedition — clean, legally safe, and fully auditable provenance 
 
 Event-driven capture — records only meaningful changes in terrain, surface, environment, or physiological state
 
@@ -88,7 +88,7 @@ Establishes a clear, auditable chain from capture to storage.
 
 Single-Person, Single-Source Advantages
 
-Complete provenance and traceability — every segment is fully documented ✅
+Complete provenance and traceability — every segment is fully documented 
 
 Compliance-friendly — aligns with GDPR and EU AI Act transparency expectations for AI training data
 
